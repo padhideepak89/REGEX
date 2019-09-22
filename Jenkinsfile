@@ -3,19 +3,17 @@ pipeline {
     stages {
         stage('clone repo') { 
             steps {
-                sh "rm -rf REGEX"
-                sh "git clone https://github.com/padhideepak89/REGEX.git"
-                sh "mvn clean -f ./REGEX"
+                sh "mvn clean"
             }
         }
         stage('Test') { 
             steps {
-                sh "mvn test -f ./REGEX"
+                sh "mvn test"
             }
         }
         stage('Deploy') { 
             steps {
-                sh "mvn package -f REGEX" 
+                sh "mvn package" 
             }
         }
     }
